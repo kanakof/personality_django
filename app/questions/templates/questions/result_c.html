@@ -1,0 +1,43 @@
+<!doctype html>
+{% load static %}
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='page.css') }}" />    
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+
+
+        <title>あなたのTypeはCです</title>
+
+    </head>
+    <body>
+        <div class = "header">
+            <div class = "header-logo">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDl2-L1_SRV6R8sk3vPCGtO5vy8LEnpUSoaoEnCXBuItx89ag78Q3MxM6HtkUixlwiYw1cSK50-P0veLIMXpbT_w-wjcpxSeH7JDOe7r_oNeMe8bX_VsydNAj90vBr1Hm-PhR2V-UJ3O2pAkUmhU4d4mg_qMGlg5r7CmzKiZ_yJzQk24lR5acOGYVX6w/s845/pop_shinsyakaijin_murisuruna.png">
+            </div>
+        </div>
+        <div class = "main">  
+            <div class = "copy-container">
+              <h1>あなたは…こだわり職人タイプです</h1>
+            </div>
+            <div class="content">
+                <img src="https://1.bp.blogspot.com/-9jufP_s7RQk/X9GX8hoyYdI/AAAAAAABcrU/-2qUflYQuNk2kAdcro0FtD_k21Mb67bwACNcBGAsYHQ/s910/computer_tokui_boy.png" height="300" width="400">
+                <p>（引用元：いらすとや）</p>
+                <h2>細部へのこだわりが強く、細かいミスにもよく気づくあなたは…<br>
+                <span>こだわり職人タイプです</span></h2>
+                <p>数値やデータ、文章などと向き合うような、コツコツした作業もあまり苦にならず、
+                    また細かい部分にもよく気が付くので、チームに1人いるととても感謝されます</p>
+                <p>ただ、こだわりが強いので、自分の思う通りに仕事が進められなかったりすると、ストレスがたまるかもしれません。</p>
+                <p>チームで同じ仕事を複数人で進めていく仕事より、職人のようにコツコツと自分主体で進めらるような仕事が向いていると思いますよ…！</p>
+            </div>
+            <div class = "share_result">
+                SNSで結果をシェアする
+                <!-- TODO url取得出来次第、復活
+                    <a href="https://twitter.com/intent/tweet?url=http://127.0.0.1:4000/result_a.html&text=あなたは…こだわり職人タイプです%0a👇診断してみる">Tweetする</a> -->
+            </div>
+        </div>
+    </body>
+</html>
