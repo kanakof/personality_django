@@ -5,9 +5,9 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='page.css') }}" />    
+        <meta name="apple-mobile-web-app-capable" content="yes" /> 
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+        <link rel="stylesheet" href='{% static "questions/index.css" %}'/> 
 
 
         <title>メッセージ</title>
@@ -31,6 +31,6 @@
             </div>
         </div>
 
-        <button type="button" onclick="location.href='./page.html'">診断をはじめる</button>
+        <button type="button" onclick="location.href='./questions/templates/index.html'">診断をはじめる</button>
     </body>
 </html>
