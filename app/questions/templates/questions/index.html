@@ -37,10 +37,12 @@
     </div>
 
     <div class="content">
-      <div class="question">
-        1. 連絡がしばらく帰ってこないと、自分が何かしたのではないかと不安になる
-      </div>
       <form action="/" method="post">
+      {% csrf_token %}
+
+        <div class="question">
+          1. 連絡がしばらく帰ってこないと、自分が何かしたのではないかと不安になる
+        </div>
         <label><input class="group1" type="radio" name="item1" value="5" />とても同意する</label>
         <label><input class="group1" type="radio" name="item1" value="4" />まあ同意する</label>
         <label><input class="group1" type="radio" name="item1" value="3" />どちらでもない</label>
@@ -239,8 +241,8 @@
             <label><input type="radio" name="BLOOD" value="O" id="blood-o">O型</label>
             <label><input type="radio" name="BLOOD" value="AB" id="blood-ab">AB型</label>
           </div>
-
         </div>
+      </form>
 
 
     </div>

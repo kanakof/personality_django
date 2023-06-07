@@ -19,21 +19,6 @@ def process_POST_request(request):
 
 
 
-def process_POST_request(request):
-    print("post request is received")
-    apple = "banana"
-    result_type = get_personality_type(request,apple)
-
-    """POSTの結果次第で、レンダリングする"""
-    if request.method == 'POST':
-        print(result_type)
-        print(type(result_type))
-        if result_type == 'type A':
-            return render(request, "questions/result_a.html")
-        elif result_type == 'type B':
-            return render(request, "questions/result_b.html")
-        elif result_type == 'type C':
-            return render(request, "questions/result_c.html")
 
 
 def get_personality_type(request,apple):
@@ -46,7 +31,7 @@ def get_personality_type(request,apple):
     """group1(=タイプA)の合計を算出"""
     total = 0
     for i in group1:
-        point_str = request.form.get('item{}'.format(i))
+        point_str = request.POST.get('item{}'.format(i))
         print(point_str)
         if point_str:
             total += int(point_str)
@@ -55,7 +40,7 @@ def get_personality_type(request,apple):
     """group2(=タイプB)の合計を算出"""
     total2 = 0
     for i in group2:
-        point_str = request.form.get('item{}'.format(i))
+        point_str = request.POST.get('item{}'.format(i))
         print(point_str)
         if point_str:
             total2 += int(point_str)
@@ -64,7 +49,7 @@ def get_personality_type(request,apple):
     """group3(=タイプC)の合計を算出"""
     total3 = 0
     for i in group3:
-        point_str = request.form.get('item{}'.format(i))
+        point_str = request.POST.get('item{}'.format(i))
         print(point_str)
         if point_str:
             total3 += int(point_str)
@@ -88,6 +73,27 @@ def get_personality_type(request,apple):
         personality_type = "C"
     personality_type = "type " + personality_type
     return personality_type
+
+
+
+def process_POST_request(request):
+    print("post request is received")
+    apple = "banana"
+    result_type = get_personality_type(request,apple)
+
+    """POSTの結果次第で、レンダリングする"""
+    if request.method == 'POST':
+
+        print(result_type)
+        print(type(result_type))
+        if result_type == 'type A':
+            return render(request, "questions/result_a.html")
+        elif result_type == 'type B':
+            return render(request, "questions/result_b.html")
+        elif result_type == 'type C':
+            return render(request, "questions/result_c.html")
+
+
 
 
 # @app.route('/page.html')
