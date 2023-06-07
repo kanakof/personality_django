@@ -1,14 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-def front(request):
-    return render(request, "questions/front.html")
-
 def index(request):
     return render(request, "questions/index.html")
 
-def process_POST_request(request):
-    return render(request, "questions/result_a.html")
+def page(request):
+    return render(request, "questions/page.html")
+
+# def process_POST_request(request):
+#     return render(request, "questions/result_a.html")
 
 # def result_b(request):
 #     # return render(request, "questions/result_b.html")
@@ -16,6 +16,42 @@ def process_POST_request(request):
 # def result_c(request):
 #     return render(request, "questions/result_c.html")
 
+
+
+def process_POST_request(request):
+    print("post request is received")
+    apple = "banana"
+    result_type = get_personality_type(request,apple)
+
+    """POSTの結果次第で、レンダリングする"""
+    if request.method == 'POST':
+        print(result_type)
+        print(type(result_type))
+        if result_type == 'type A':
+            return render(request, "questions/result_a.html")
+        elif result_type == 'type B':
+            return render(request, "questions/result_b.html")
+        elif result_type == 'type C':
+            return render(request, "questions/result_c.html")
+
+
+
+# def process_POST_request(request):
+#     print("post request is received")
+#     apple = "banana"
+#     result_type = get_personality_type(request,apple)
+
+#     """POSTの結果次第で、レンダリングする"""
+#     if request.method == 'POST':
+
+#         print(result_type)
+#         print(type(result_type))
+#         if result_type == 'type A':
+#             return render(request, "questions/result_a.html")
+#         elif result_type == 'type B':
+#             return render(request, "questions/result_b.html")
+#         elif result_type == 'type C':
+#             return render(request, "questions/result_c.html")
 
 
 
@@ -61,6 +97,7 @@ def get_personality_type(request,apple):
     (前提) タイプの強さ : タイプＡ＞タイプＣ＞タイプＢ）
     -1つが最も高いとき : そのタイプを返す
     -数値が同一のとき  : 強いタイプを優先して返す"""
+    personality_type = "B"
     if total >= total2 and total3:
         personality_type = "A"
     elif total2 > total and total3:
@@ -73,25 +110,6 @@ def get_personality_type(request,apple):
         personality_type = "C"
     personality_type = "type " + personality_type
     return personality_type
-
-
-
-def process_POST_request(request):
-    print("post request is received")
-    apple = "banana"
-    result_type = get_personality_type(request,apple)
-
-    """POSTの結果次第で、レンダリングする"""
-    if request.method == 'POST':
-
-        print(result_type)
-        print(type(result_type))
-        if result_type == 'type A':
-            return render(request, "questions/result_a.html")
-        elif result_type == 'type B':
-            return render(request, "questions/result_b.html")
-        elif result_type == 'type C':
-            return render(request, "questions/result_c.html")
 
 
 
