@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+# from questions.models import 
 
 def index(request):
     return render(request, "questions/index.html")
