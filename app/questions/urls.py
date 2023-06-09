@@ -1,12 +1,13 @@
 from django.urls import path
-
 from . import views
+from questions.views import ProcessView
 
+app_name = "questions"
 urlpatterns = [
     path("", views.index, name="index"),
     path("test/", views.page, name="page"),
-    path('form',views.process_POST_request, name="process_POST_request"),
-    path("test/result_a/", views.process_POST_request, name="result_a"),
-    path("test/result_b/", views.process_POST_request, name="result_b"),
-    path("test/result_c/", views.process_POST_request, name="result_c")
+    path('form', ProcessView.as_view(), name="Process"),
+    path("test/result_a/", ProcessView.as_view(), name="Process"),
+    path("test/result_b/", ProcessView.as_view(), name="Process"),
+    path("test/result_c/", ProcessView.as_view(), name="Process")
 ]

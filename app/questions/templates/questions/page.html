@@ -37,8 +37,9 @@
     </div>
 
     <div class="content">
-      <form action="" method="post">{% csrf_token %}
-    
+      {% comment %} <form action="" method="post">{% csrf_token %} {% endcomment %}
+      <form action="{% url 'questions:Process' %}" method="post">{% csrf_token %}
+
         <div class="question">
           1. 連絡がしばらく帰ってこないと、自分が何かしたのではないかと不安になる
         </div>
