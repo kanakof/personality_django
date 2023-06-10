@@ -16,7 +16,7 @@ BLOODTYPE_CHOICES = (
 )
 
 
-class Questions(models.Model):
+class Question(models.Model):
     name = models.CharField(max_length=100)
     # gender = models.ChoiceField(choices=GENDER_CHOICES, max_length=1)
     # bloodtype = models.ChoiceField(choices=BLOODTYPE_CHOICES, max_length=2)

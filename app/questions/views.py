@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import View
+from .models import Question
 # from questions.models import 
 
 def index(request):
