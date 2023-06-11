@@ -10,16 +10,16 @@ class Question(models.Model):
         ('N', 'Noanswer'),
     ]
 
-    BLOODTYPE_CHOICES = (
+    BLOODTYPE_CHOICES = [
         ('A', 'A型'),
         ('B', 'B型'),
         ('O', 'O型'),
         ('AB', 'AB型'),
-    )
+    ]
 
     name = models.CharField(max_length=100)
-    gender = models.CharField(choices=GENDER_CHOICES, max_length=1)
-    bloodtype = models.CharField(choices=BLOODTYPE_CHOICES, max_length=2)
+    gender = models.CharField(choices=GENDER_CHOICES, max_length=1, default=(''))
+    bloodtype = models.CharField(choices=BLOODTYPE_CHOICES, max_length=2, default=(''))
 
 
 class Answer(models.Model):
