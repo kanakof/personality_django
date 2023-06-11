@@ -21,7 +21,7 @@ class AnswerChoices(models.IntegerChoices):
 
 class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice = models.IntegerField(choices=AnswerChoices.choices)
+    choice = models.IntegerField(choices=AnswerChoices.choices, default=AnswerChoices.NEUTRAL)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
 
