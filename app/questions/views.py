@@ -10,12 +10,7 @@ class ProcessView(View):
         """POSTの結果次第で、レンダリングする"""
         print("post request is received")
         result_type = self.get_personality_type(request)
-        if result_type == "type A":
-            return redirect("result")
-        elif result_type == "type B":
-            return redirect("result")
-        elif result_type == "type C":
-            return redirect("result")
+        request.session['type'] = result_type
         return redirect("result")
 
     def get_personality_type(self, request):
@@ -60,22 +55,21 @@ class ProcessView(View):
         -数値が同一のとき  : 強いタイプを優先して返す"""
         personality_type = ""
         if total >= total2 and total3:
-            personality_type = "A"
+            personality_type = "a"
         elif total2 > total and total3:
-            personality_type = "B"
+            personality_type = "b"
         elif total3 > total and total2:
-            personality_type = "C"
+            personality_type = "c"
         elif total == total2 > total3 or total == total3 > total2:
-            personality_type = "A"
+            personality_type = "a"
         elif total2 == total3 > total:
-            personality_type = "C"
-        personality_type = "type " + personality_type
+            personality_type = "c"
         return personality_type
 
 
 class ResultView(View):
     def get(self, request):
-        redirect_template = "questions/result_a.html"
-        redirect_template = "questions/result_b.html"
-        redirect_template = "questions/result_c.html"
+        """sessionからtypeを取得"""
+        personality_type = request.session.get('type')
+        redirect_template = f"questions/result_{personality_type}.html"
         return render(request, redirect_template)
