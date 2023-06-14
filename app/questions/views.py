@@ -1,38 +1,18 @@
-from django.shortcuts import render, render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
 from django.views.generic import View
-from .models import Question
-from .forms import Questionform, Answerform
-# from questions.models import 
-
-def index(request):
-    return render(request, "questions/index.html")
-
-def page(request):
-    return render(request, "questions/page.html")
-
 
 class ProcessView(View):
+    def get(self, request):
+        return render(request, "questions/question_list.html")
 
     def post(self,request):
-        print("post request is received")
-        apple = "banana"
-        result_type = self.get_personality_type(request,apple)
-
         """POSTの結果次第で、レンダリングする"""
-        # if request.method == 'POST':
-        print(result_type)
-        # print(type(result_type))
-        if result_type == 'type A':
-            return render(request, "questions/result_a.html")
-        elif result_type == 'type B':
-            return render(request, "questions/result_b.html")
-        elif result_type == 'type C':
-            return render(request, "questions/result_c.html")
+        print("post request is received")
+        result_type = self.get_personality_type(request)
+        request.session['type'] = result_type
+        return redirect('questions:result')
 
-
-
-    def get_personality_type(self,request,apple):
+    def get_personality_type(self,request):
         """group1(=タイプA),group2(=タイプB),group3(=タイプC)"""
         """[]内の数値はhtmlのitem名"""
         group1 = ["1","4","8","10","13","17"]
@@ -74,16 +54,20 @@ class ProcessView(View):
         -数値が同一のとき  : 強いタイプを優先して返す"""
         personality_type = ""
         if total >= total2 and total3:
-            personality_type = "A"
+            personality_type = "a"
         elif total2 > total and total3:
-            personality_type = "B"
+            personality_type = "b"
         elif total3 > total and total2:
-            personality_type = "C"
+            personality_type = "c"
         elif total == total2 > total3 or total == total3 > total2:
-            personality_type = "A"
+            personality_type = "a"
         elif total2 == total3 >total:
-            personality_type = "C"
-        personality_type = "type " + personality_type
+            personality_type = "c"
         return personality_type
 
 
+class ResultView(View):
+    def get(self, request):
+        personality_type = request.session.get("type")
+        redirect_template = f"questions/result_{personality_type}.html"
+        return render(request, redirect_template)
