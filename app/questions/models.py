@@ -6,17 +6,20 @@ class Question(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
 
+    def __str__(self):
+        return self.body
+
     class Meta:
         verbose_name = "質問"
         verbose_name_plural = "質問一覧"
 
 
 class AnswerChoices(models.IntegerChoices):
-    STRONGLY_AGREE = 1, "強く同意する"
-    AGREE = 2, "同意する"
+    STRONGLY_AGREE = 1, "とても同意する"
+    AGREE = 2, "まあ同意する"
     NEUTRAL = 3, "どちらでもない"
-    DISAGREE = 4, "同意しない"
-    STRONGLY_DISAGREE = 5, "強く同意しない"
+    DISAGREE = 4, "あまり同意しない"
+    STRONGLY_DISAGREE = 5, "全く同意しない"
 
 
 class Answer(models.Model):

@@ -1,5 +1,6 @@
 <!doctype html>
 {% load static %}
+{% load boost%}
 
 <html>
 
@@ -31,190 +32,22 @@
 
     <div class="content">
       <form action="" method="post">{% csrf_token %}
-    
-        <div class="question">
-          1. 連絡がしばらく帰ってこないと、自分が何かしたのではないかと不安になる
-        </div>
-        <label><input class="group1" type="radio" name="item1" value="5" />とても同意する</label>
-        <label><input class="group1" type="radio" name="item1" value="4" />まあ同意する</label>
-        <label><input class="group1" type="radio" name="item1" value="3" />どちらでもない</label>
-        <label><input class="group1" type="radio" name="item1" value="2" />あまり同意しない</label>
-        <label><input class="group1" type="radio" name="item1" value="1" />全く同意しない</label>
+        {% zip questions numbers as zipped_list %}
+        {% for question, number in zipped_list %}
 
-        <div class="question">
-          2. 自分はよく考えるタイプだと思うし、人からもそういわれる
-        </div>
-        <label><input class="group2" type="radio" name="item2" value="5" />とても同意する</label>
-        <label><input class="group2" type="radio" name="item2" value="4" />まあ同意する</label>
-        <label><input class="group2" type="radio" name="item2" value="3" />どちらでもない</label>
-        <label><input class="group2" type="radio" name="item2" value="2" />あまり同意しない</label>
-        <label><input class="group2" type="radio" name="item2" value="1" />全く同意しない</label>
-
-        <div class="question">
-          3. 数値やデータ見て考えるのは苦痛でない
-        </div>
-        <label><input class="group3" type="radio" name="item3" value="5" />とても同意する</label>
-        <label><input class="group3" type="radio" name="item3" value="4" />まあ同意する</label>
-        <label><input class="group3" type="radio" name="item3" value="3" />どちらでもない</label>
-        <label><input class="group3" type="radio" name="item3" value="2" />あまり同意しない</label>
-        <label><input class="group3" type="radio" name="item3" value="1" />全く同意しない</label>
-
-
-        <div class="question">
-          4. 1人でいる時間は自分にとって重要だ
-        </div>
-        <label><input class="group1" type="radio" name="item4" value="5" />とても同意する</label>
-        <label><input class="group1" type="radio" name="item4" value="4" />まあ同意する</label>
-        <label><input class="group1" type="radio" name="item4" value="3" />どちらでもない</label>
-        <label><input class="group1" type="radio" name="item4" value="2" />あまり同意しない</label>
-        <label><input class="group1" type="radio" name="item4" value="1" />全く同意しない</label>
-
-
-        <div class="question">
-          5. コツコツする作業は、どちらかというと好きだ
-        </div>
-        <label><input class="group3" type="radio" name="item5" value="5" />とても同意する</label>
-        <label><input class="group3" type="radio" name="item5" value="4" />まあ同意する</label>
-        <label><input class="group3" type="radio" name="item5" value="3" />どちらでもない</label>
-        <label><input class="group3" type="radio" name="item5" value="2" />あまり同意しない</label>
-        <label><input class="group3" type="radio" name="item5" value="1" />全く同意しない</label>
-
-
-        <div class="question">
-          6. 結果が想像できない中で、行動を起こすことはあまりない
-        </div>
-
-        <label><input class="group2" type="radio" name="item6" value="5" />とても同意する</label>
-        <label><input class="group2" type="radio" name="item6" value="4" />まあ同意する</label>
-        <label><input class="group2" type="radio" name="item6" value="3" />どちらでもない</label>
-        <label><input class="group2" type="radio" name="item6" value="2" />あまり同意しない</label>
-        <label><input class="group2" type="radio" name="item6" value="1" />全く同意しない</label>
-
-
-
-        <div class="question">
-          7. 自分ルールが存在する
-        </div>
-
-        <label><input class="group3" type="radio" name="item7" value="5" />とても同意する</label>
-        <label><input class="group3" type="radio" name="item7" value="4" />まあ同意する</label>
-        <label><input class="group3" type="radio" name="item7" value="3" />どちらでもない</label>
-        <label><input class="group3" type="radio" name="item7" value="2" />あまり同意しない</label>
-        <label><input class="group3" type="radio" name="item7" value="1" />全く同意しない</label>
-
-
-
-        <div class="question">
-          8. 人の意見や感情に引きずられる方だ
-        </div>
-        <label><input class="group1" type="radio" name="item8" value="5" />とても同意する</label>
-        <label><input class="group1" type="radio" name="item8" value="4" />まあ同意する</label>
-        <label><input class="group1" type="radio" name="item8" value="3" />どちらでもない</label>
-        <label><input class="group1" type="radio" name="item8" value="2" />あまり同意しない</label>
-        <label><input class="group1" type="radio" name="item8" value="1" />全く同意しない</label>
-
-
-
-        <div class="question">
-          9. 何かに夢中で、気づくと時間を忘れている
-        </div>
-        <label><input class="group2" type="radio" name="item9" value="5" />とても同意する</label>
-        <label><input class="group2" type="radio" name="item9" value="4" />まあ同意する</label>
-        <label><input class="group2" type="radio" name="item9" value="3" />どちらでもない</label>
-        <label><input class="group2" type="radio" name="item9" value="2" />あまり同意しない</label>
-        <label><input class="group2" type="radio" name="item9" value="1" />全く同意しない</label>
-
-
-
-        <div class="question">
-          10. 大きい音などに必要以上に驚いてしまう
-        </div>
-        <label><input class="group1" type="radio" name="item10" value="5" />とても同意する</label>
-        <label><input class="group1" type="radio" name="item10" value="4" />まあ同意する</label>
-        <label><input class="group1" type="radio" name="item10" value="3" />どちらでもない</label>
-        <label><input class="group1" type="radio" name="item10" value="2" />あまり同意しない</label>
-        <label><input class="group1" type="radio" name="item10" value="1" />全く同意しない</label>
-
-
-        <div class="question">
-          11. パソコンや机の上など、どこに何があるか、大体頭の中に入っている
-        </div>
-        <label><input class="group3" type="radio" name="item11" value="5" />とても同意する</label>
-        <label><input class="group3" type="radio" name="item11" value="4" />まあ同意する</label>
-        <label><input class="group3" type="radio" name="item11" value="3" />どちらでもない</label>
-        <label><input class="group3" type="radio" name="item11" value="2" />あまり同意しない</label>
-        <label><input class="group3" type="radio" name="item11" value="1" />全く同意しない</label>
-
-
-        <div class="question">
-          12. 本を読んであれこれ思いめぐらすのが好きだ
-        </div>
-        <label><input class="group2" type="radio" name="item12" value="5" />とても同意する</label>
-        <label><input class="group2" type="radio" name="item12" value="4" />まあ同意する</label>
-        <label><input class="group2" type="radio" name="item12" value="3" />どちらでもない</label>
-        <label><input class="group2" type="radio" name="item12" value="2" />あまり同意しない</label>
-        <label><input class="group2" type="radio" name="item12" value="1" />全く同意しない</label>
-
-
-        <div class="question">
-          13. ドラマや映画の主人公に感情移入しすぎるときがある
-        </div>
-        <label><input class="group1" type="radio" name="item13" value="5" />とても同意する</label>
-        <label><input class="group1" type="radio" name="item13" value="4" />まあ同意する</label>
-        <label><input class="group1" type="radio" name="item13" value="3" />どちらでもない</label>
-        <label><input class="group1" type="radio" name="item13" value="2" />あまり同意しない</label>
-        <label><input class="group1" type="radio" name="item13" value="1" />全く同意しない</label>
-
-
-        <div class="question">
-          14. 物事を進めるとき、自分の思った通りに進めたい
-        </div>
-        <label><input class="group3" type="radio" name="item14" value="5" />とても同意する</label>
-        <label><input class="group3" type="radio" name="item14" value="4" />まあ同意する</label>
-        <label><input class="group3" type="radio" name="item14" value="3" />どちらでもない</label>
-        <label><input class="group3" type="radio" name="item14" value="2" />あまり同意しない</label>
-        <label><input class="group3" type="radio" name="item14" value="1" />全く同意しない</label>
-
-
-        <div class="question">
-          15. 自分は慎重に判断する方だと思う
-        </div>
-        <label><input class="group2" type="radio" name="item15" value="5" />とても同意する</label>
-        <label><input class="group2" type="radio" name="item15" value="4" />まあ同意する</label>
-        <label><input class="group2" type="radio" name="item15" value="3" />どちらでもない</label>
-        <label><input class="group2" type="radio" name="item15" value="2" />あまり同意しない</label>
-        <label><input class="group2" type="radio" name="item15" value="1" />全く同意しない</label>
-
-
-        <div class="question">
-          16. 細かいミスなどによく気づくと思う
-        </div>
-        <label><input class="group3" type="radio" name="item16" value="5" />とても同意する</label>
-        <label><input class="group3" type="radio" name="item16" value="4" />まあ同意する</label>
-        <label><input class="group3" type="radio" name="item16" value="3" />どちらでもない</label>
-        <label><input class="group3" type="radio" name="item16" value="2" />あまり同意しない</label>
-        <label><input class="group3" type="radio" name="item16" value="1" />全く同意しない</label>
-
-
-        <div class="question">
-          17. かなり鮮明な夢を見ることが多い
-        </div>
-        <label><input class="group1" type="radio" name="item17" value="5" />とても同意する</label>
-        <label><input class="group1" type="radio" name="item17" value="4" />まあ同意する</label>
-        <label><input class="group1" type="radio" name="item17" value="3" />どちらでもない</label>
-        <label><input class="group1" type="radio" name="item17" value="2" />あまり同意しない</label>
-        <label><input class="group1" type="radio" name="item17" value="1" />全く同意しない</label>
-
-
-        <div class="question">
-          18. 旅行に行くときなど、しっかり計画を立てるほうだ
-        </div>
-        <label><input class="group2" type="radio" name="item18" value="5" />とても同意する</label>
-        <label><input class="group2" type="radio" name="item18" value="4" />まあ同意する</label>
-        <label><input class="group2" type="radio" name="item18" value="3" />どちらでもない</label>
-        <label><input class="group2" type="radio" name="item18" value="2" />あまり同意しない</label>
-        <label><input class="group2" type="radio" name="item18" value="1" />全く同意しない</label>
-
+          <div>
+            <div class="question">
+              <div>
+                {{question.body}}
+              </div>  
+                <label><input type="radio" name="item{{number}}"  value="5" />とても同意する</label>
+                <label><input type="radio" name="item{{number}}"  value="4" />まあ同意する</label>
+                <label><input type="radio" name="item{{number}}"  value="3" />どちらでもない</label>
+                <label><input type="radio" name="item{{number}}" value="2" />あまり同意しない</label>
+                <label><input type="radio" name="item{{number}}"  value="1" />全く同意しない</label>
+            </div>  
+          </div>         
+        {% endfor %}
 
         <div class="question_other">
           あなたの性別は？
