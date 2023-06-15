@@ -21,10 +21,23 @@ class AnswerChoices(models.IntegerChoices):
     DISAGREE = 4, "あまり同意しない"
     STRONGLY_DISAGREE = 5, "全く同意しない"
 
+class GenderChoices(models.IntegerChoices):
+    FEMALE = 1, "女性"
+    MALE = 2, "男性"
+    NONE = 3, "無回答"
+
+class BtypeChoices(models.IntegerChoices):
+    A = 1, "A型"
+    B = 2, "B型"
+    O = 3, "O型"
+    AB = 4, "AB型"
+
 
 class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice = models.IntegerField(choices=AnswerChoices.choices, default=AnswerChoices.NEUTRAL)
+    genderchoices = models.IntegerField(choices= GenderChoices.choices, default= GenderChoices.NONE)
+    btypechoice = models.IntegerField(choices=BtypeChoices.choices, default=BtypeChoices.A)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
 
