@@ -5,11 +5,9 @@ from .models import Question
 class ProcessView(View):
     def get(self, request):
         questions = Question.objects.all()
-        numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
-        print(questions, numbers)
+        print(questions)
         context = {
             "questions" : questions,
-            "numbers" : numbers,
         }
         return render(request, "questions/question_list.html", context)
 
