@@ -17,19 +17,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python 3.10
+    - name: Set up Python
       uses: actions/setup-python@v3
       with:
         python-version: '3.10'
 
-    - name: Deploy to PythonAnywhere SSH 経由のデプロイ
+    - name: Generate ssh key
+      run: echo "$SSH_PRIVATE_KEY" > ${{ runner.temp }}/key && chmod 600 ${{ runner.temp }}/key
       env:
-          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          # PUBLIC_KEY: ${{ secrets.pythonanywhere_PUBLIC_KEY }}
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy to PythonAnywhere SSH 経由のデプロイ
       run: |
-        rsync -avz --exclude='.git/' ./ kanakong@ssh.pythonanywhere.com:/home/kanakong/personality_django/
-        -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
-        
+        rsync -e 'ssh -i ${{ runner.temp }}/key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+        -av --delete public/ $kanakong@ssh.pythonanywhere.com:/home/kanakong/personality_django/ 
         
 #     - name: Install Dependencies
 #       run: |
