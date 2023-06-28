@@ -13,7 +13,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.7, 3.8, 3.9]
+        python-version: [3.10]
 
     steps:
     - uses: actions/checkout@v3
@@ -24,11 +24,11 @@ jobs:
 
     - name: Deploy to PythonAnywhere SSH 経由のデプロイ
       env:
-          PRIVATE_KEY: ${{ secrets.pythonanywhere_PRIVATE_KEY }}
-          PUBLIC_KEY: ${{ secrets.pythonanywhere_PUBLIC_KEY }}
+          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          # PUBLIC_KEY: ${{ secrets.pythonanywhere_PUBLIC_KEY }}
       run: |
-        rsync -avz --exclude='.git/' ./ kanakong@ssh.pythonanywhere.com:/home/kanakong/flask_sample_app/
-        
+        rsync -avz --exclude='.git/' ./ kanakong@ssh.pythonanywhere.com:/home/kanakong/personality_django/
+        -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
         
         
 #     - name: Install Dependencies
