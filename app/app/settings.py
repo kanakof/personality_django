@@ -27,7 +27,10 @@ SECRET_KEY = 'django-insecure-$$oo8ld4!-cq(-l^#s(c_1a9v2^=o6^e%2zh=a2eiu17g7^u9%
 DEBUG = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-ALLOWED_HOSTS = ['kanakong.pythonanywhere.com']
+ALLOWED_HOSTS = ['kanakong.pythonanywhere.com',
+                'localhost',
+                'www.localhost',
+                '127.0.0.1']
 
 
 
