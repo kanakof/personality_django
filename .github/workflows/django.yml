@@ -28,7 +28,7 @@ jobs:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Deploy to PythonAnywhere SSH 経由のデプロイ
-      run: |
+      run: >
         rsync -e 'ssh -i ${{ runner.temp }}/key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
         -av --delete public/ $kanakong@ssh.pythonanywhere.com:/home/kanakong/personality_django/ 
         
