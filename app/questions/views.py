@@ -76,5 +76,7 @@ class ResultView(View):
     def get(self, request):
         """sessionからtypeを取得"""
         personality_type = request.session.get('type')
+        if not personality_type:
+            return redirect("questions")
         redirect_template = f"questions/result_{personality_type}.html"
         return render(request, redirect_template)
