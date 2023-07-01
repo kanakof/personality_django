@@ -1,10 +1,15 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
-
+from .models import Question
 
 class ProcessView(View):
     def get(self, request):
-        return render(request, "questions/question_list.html")
+        questions = Question.objects.all()
+        print(questions)
+        context = {
+            "questions" : questions,
+        }
+        return render(request, "questions/question_list.html", context)
 
     def post(self, request):
         """POSTの結果次第で、レンダリングする"""
@@ -71,5 +76,7 @@ class ResultView(View):
     def get(self, request):
         """sessionからtypeを取得"""
         personality_type = request.session.get('type')
+        if not personality_type:
+            return redirect("questions")
         redirect_template = f"questions/result_{personality_type}.html"
         return render(request, redirect_template)
