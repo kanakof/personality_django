@@ -38,7 +38,7 @@ class User(models.Model):
     updated_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.body
+        return self.name
 
     class Meta:
         verbose_name = "User情報"
