@@ -1,21 +1,20 @@
 name: Django CI
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - 'main'
+    types:
+      - closed
 
 jobs:
-  deploy:
-
+  if_merged:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 4
-      matrix:
-        python-version: [3.10]
-
+    
     steps:
+    - run: |
+        echo The PR was merged
     - uses: actions/checkout@v3
     - name: Set up Python
       uses: actions/setup-python@v3
