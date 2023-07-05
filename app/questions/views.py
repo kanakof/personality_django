@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
-from .models import Question
+from .models import Question, Answer, User
 
 class ProcessView(View):
     def get(self, request):
@@ -15,6 +15,20 @@ class ProcessView(View):
         """POSTの結果次第で、レンダリングする"""
         print("post request is received")
         result_type = self.get_personality_type(request)
+
+        """どれがどれに対応するのか、明記する"""
+        user = User.objects.create(
+            name = request.POST.get("nickname"), 
+            g_choice = request.POST.get("gender"),
+            b_choice = request.POST.get("blood"), )
+
+        for i in range(1,19):
+            Answer.objects.create(
+                choice = request.POST.get("item{}".format(i)),
+                question = Question.objects.get(id=i),
+                user = user
+                )
+
         request.session['type'] = result_type
         return redirect("result")
 
