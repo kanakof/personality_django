@@ -48,21 +48,28 @@
         {% endfor %}
 
         <div class="question_other">
+          あなたのニックネームは？
+          <div class="group1_area">
+            <label><input type="text" name="nickname"></label>
+          </div>
+        </div>
+
+        <div class="question_other">
           あなたの性別は？
           <div class="group1_area">
-            <label><input type="radio" name="GENDER" value="MALE" id="gender-male">男性</label>
-            <label></label><input type="radio" name="GENDER" value="FEMALE" id="gender-female">女性</label>
-            <label></label><input type="radio" name="GENDER" value="NONE" id="gender-none">無回答</label>
+            <label><input type="radio" name="gender" value="1" id="gender-female">女性</label>
+            <label><input type="radio" name="gender" value="2" id="gender-male">男性</label>
+            <label><input type="radio" name="gender" value="3" id="gender-none">無回答</label>
           </div>
         </div>
 
         <div class="question_other">
           あなたの血液型は？
           <div class="group1_area">
-            <label><input type="radio" name="BLOOD" value="A" id="blood-a">A型</label>
-            <label><input type="radio" name="BLOOD" value="B" id="blood-b">B型</label>
-            <label><input type="radio" name="BLOOD" value="O" id="blood-o">O型</label>
-            <label><input type="radio" name="BLOOD" value="AB" id="blood-ab">AB型</label>
+            <label><input type="radio" name="blood" value="1" id="blood-a">A型</label>
+            <label><input type="radio" name="blood" value="2" id="blood-b">B型</label>
+            <label><input type="radio" name="blood" value="3" id="blood-o">O型</label>
+            <label><input type="radio" name="blood" value="4" id="blood-ab">AB型</label>
           </div>
         </div>
 
