@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
-  <link rel="stylesheet" href='{% static "questions/index.css" %}'/> 
+  <link rel="stylesheet" href='{% static "index.css" %}'/> 
 
   <title>性格診断テスト</title>
 
@@ -33,18 +33,18 @@
       <form action="" method="post">{% csrf_token %}
         {% for question in questions %}
 
-          <div>
-            <div class="question">
-              <div>
-                {{question.body}}
-              </div>  
-                <label><input type="radio" name="item{{forloop.counter}}"  value="5" />とても同意する</label>
-                <label><input type="radio" name="item{{forloop.counter}}"  value="4" />まあ同意する</label>
-                <label><input type="radio" name="item{{forloop.counter}}"  value="3" />どちらでもない</label>
-                <label><input type="radio" name="item{{forloop.counter}}" value="2" />あまり同意しない</label>
-                <label><input type="radio" name="item{{forloop.counter}}"  value="1" />全く同意しない</label>
+          <div class="question">
+            <div class = "question_content">
+              {{question.body}}
             </div>  
-          </div>         
+            <div class="answer">
+              <label><input type="radio" name="item{{forloop.counter}}"  value="5" />とても同意する</label>
+              <label><input type="radio" name="item{{forloop.counter}}"  value="4" />まあ同意する</label>
+              <label><input type="radio" name="item{{forloop.counter}}"  value="3" />どちらでもない</label>
+              <label><input type="radio" name="item{{forloop.counter}}" value="2" />あまり同意しない</label>
+              <label><input type="radio" name="item{{forloop.counter}}"  value="1" />全く同意しない</label>
+            </div> 
+          </div>       
         {% endfor %}
 
         <div class="question_other">
@@ -57,19 +57,19 @@
         <div class="question_other">
           あなたの性別は？
           <div class="group1_area">
-            <label><input type="radio" name="gender" value="1" id="gender-female">女性</label>
-            <label><input type="radio" name="gender" value="2" id="gender-male">男性</label>
-            <label><input type="radio" name="gender" value="3" id="gender-none">無回答</label>
+            <label><input type="radio" name="gender" value="1" id="gender_female">女性</label>
+            <label><input type="radio" name="gender" value="2" id="gender_male">男性</label>
+            <label><input type="radio" name="gender" value="3" id="gender_none">無回答</label>
           </div>
         </div>
 
         <div class="question_other">
           あなたの血液型は？
           <div class="group1_area">
-            <label><input type="radio" name="blood" value="1" id="blood-a">A型</label>
-            <label><input type="radio" name="blood" value="2" id="blood-b">B型</label>
-            <label><input type="radio" name="blood" value="3" id="blood-o">O型</label>
-            <label><input type="radio" name="blood" value="4" id="blood-ab">AB型</label>
+            <label><input type="radio" name="blood" value="1" id="blood_a">A型</label>
+            <label><input type="radio" name="blood" value="2" id="blood_b">B型</label>
+            <label><input type="radio" name="blood" value="3" id="blood_o">O型</label>
+            <label><input type="radio" name="blood" value="4" id="blood_ab">AB型</label>
           </div>
         </div>
 
