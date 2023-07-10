@@ -3,7 +3,7 @@ from django.utils import timezone
 
 
 class Question(models.Model):
-    body = models.CharField(max_length=100, null=True, blank=True)
+    body = models.CharField(max_length=100)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
 
