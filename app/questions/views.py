@@ -16,13 +16,13 @@ class ProcessView(View):
         print("post request is received")
         result_type = self.get_personality_type(request)
 
-        """どれがどれに対応するのか、明記する"""
         user = User.objects.create(
             name = request.POST.get("nickname"), 
             g_choice = request.POST.get("gender"),
             b_choice = request.POST.get("blood"), )
-
-        for i in range(1,19):
+        
+        count = Question.objects.count()
+        for i in range(1,count + 1): # indexは1からとする
             Answer.objects.create(
                 choice = request.POST.get("item{}".format(i)),
                 question = Question.objects.get(id=i),
