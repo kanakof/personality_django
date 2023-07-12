@@ -36,3 +36,4 @@ http://kanakong.pythonanywhere.com/
 このWebアプリを通して、今悩んでいる人がより自己理解を深め、職業選択をする助けになれば、と思っています！！
 
 ## ■ER図
+![ER図](https://github.com/kanakof/personality_django/assets/130880102/6af69d85-6b74-4b08-9731-b8ba1d9e16bb)
