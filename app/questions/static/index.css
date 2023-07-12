@@ -1,11 +1,9 @@
 @charset "UTF-8";
 
 
-/* <meta name="description" content="${description}" />--> */
-/* <style media="screen"> */
 body{
   text-align: center;
-  font-family: "Noto Sans JP";
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 .header{
@@ -30,7 +28,6 @@ li {
 
 .content{
   margin: 50px;
-  /* color: #22e068; */
 }
 
 .content h2{
@@ -41,32 +38,47 @@ li {
   border-bottom: 3px dashed #3f5b96;
 }
 
-.question, .question_other{
-  font-size:large;
+
+.question_content,.question_other{
+  font-size:25px;
   font-weight:bold;
-  margin-top: 30px;
+  margin-top: 40px;
   margin-left: 20px;
   margin-bottom: 10px;
   margin-right: 20px;
+  /* padding: 10px; */
 }
 
-/* .question_other{
-  float: left;
-} */
+label{
+  /* display: block; */
+  font-size: 15px;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  /* margin-right: 10px; */
+  /* padding-left: 30px; */
+}
+
 
 .answer{
-  font-size:8em;
-  font-weight:bold;
-  margin-top: 30px;
+  font-size: 15px;
+  margin-top: 20px;
   margin-left: 40px;
   margin-bottom: 10px;
   margin-right: 20px;
+  /* padding: 30px; */
 }
 
 input[type=radio] {
   transform: scale(2);
-  margin: 0 6px 0 0;
+  margin: 0 8px 0 0;
   background-color: greenyellow;
+}
+
+input[type=text] {
+  font-size: 20px;
+  margin: 0 0 0 0;
+  background-color: white;
 }
 
 button[type=submit],[type=button] {
@@ -77,9 +89,6 @@ button[type=submit],[type=button] {
   padding:20px;
   font-size:18px;
   margin-top: 50px;
-  /* margin-left: 20px;
-  margin-bottom: 10px;
-  margin-right: 20px; */
   background-color:#dee7ec;
   color:black;
 }
@@ -97,7 +106,6 @@ h1 {
 }
 
 h2 {
-  /* font-size:50px; */
   background-color:whitesmoke;
 }
 
