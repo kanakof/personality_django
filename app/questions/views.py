@@ -73,16 +73,17 @@ class ProcessView(View):
         -1つが最も高いとき : そのタイプを返す
         -数値が同一のとき  : 強いタイプを優先して返す"""
         personality_type = ""
-        if total >= total2 and total3:
+        if total >= total2 and total >= total3:
             personality_type = "a"
-        elif total2 > total and total3:
+        elif total2 > total and total2 > total3:
             personality_type = "b"
-        elif total3 > total and total2:
+        elif total3 > total and total3 > total2:
             personality_type = "c"
         elif total == total2 > total3 or total == total3 > total2:
             personality_type = "a"
         elif total2 == total3 > total:
             personality_type = "c"
+        print(personality_type)
         return personality_type
 
 
