@@ -1,0 +1,72 @@
+- model: questions.Question
+  pk: 1
+  fields:
+    body: "1. 連絡がしばらく帰ってこないと、自分が何かしたのではないかと不安になる"
+- model: questions.Question
+  pk: 2
+  fields: 
+    body: "2. 自分はよく考えるタイプだと思うし、人からもそういわれる"
+- model: questions.Question
+  pk: 3
+  fields: 
+    body: "3. 数値やデータ見て考えるのは苦痛でない"
+- model: questions.Question
+  pk: 4
+  fields: 
+    body: "4. 1人でいる時間は自分にとって重要だ"
+- model: questions.Question
+  pk: 5
+  fields: 
+    body: "5. コツコツする作業は、どちらかというと好きだ"
+- model: questions.Question
+  pk: 6
+  fields: 
+    body: "6. 結果が想像できない中で、行動を起こすことはあまりない"
+- model: questions.Question
+  pk: 7
+  fields: 
+    body: "7. 自分ルールが存在する"
+- model: questions.Question
+  pk: 8
+  fields: 
+    body: "8. 人の意見や感情に引きずられる方だ"
+- model: questions.Question
+  pk: 9
+  fields: 
+    body: "9. 何かに夢中で、気づくと時間を忘れている"
+- model: questions.Question
+  pk: 10
+  fields: 
+    body: "10. 大きい音などに必要以上に驚いてしまう"
+- model: questions.Question
+  pk: 11
+  fields: 
+    body: "11. パソコンや机の上など、どこに何があるか、大体頭の中に入っている"
+- model: questions.Question
+  pk: 12
+  fields: 
+    body: "12. 本を読んであれこれ思いめぐらすのが好きだ"
+- model: questions.Question
+  pk: 13
+  fields: 
+    body: "13. ドラマや映画の主人公に感情移入しすぎるときがある"
+- model: questions.Question
+  pk: 14
+  fields: 
+    body: "14. 物事を進めるとき、自分の思った通りに進めたい"
+- model: questions.Question
+  pk: 15
+  fields: 
+    body: "15. 自分は慎重に判断する方だと思う"
+- model: questions.Question
+  pk: 16
+  fields: 
+    body: "16. 細かいミスなどによく気づくと思う"
+- model: questions.Question
+  pk: 17
+  fields: 
+    body: "17. かなり鮮明な夢を見ることが多い"
+- model: questions.Question
+  pk: 18
+  fields: 
+    body: "18. 旅行に行くときなど、しっかり計画を立てるほうだ"

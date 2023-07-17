@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
-from .models import Question
+from .models import Question, Answer, User
 
 class ProcessView(View):
     def get(self, request):
@@ -15,6 +15,20 @@ class ProcessView(View):
         """POSTの結果次第で、レンダリングする"""
         print("post request is received")
         result_type = self.get_personality_type(request)
+
+        user = User.objects.create(
+            name = request.POST.get("nickname"), 
+            g_choice = request.POST.get("gender"),
+            b_choice = request.POST.get("blood"), )
+        
+        count = Question.objects.count()
+        for i in range(1,count + 1): # indexは1からとする
+            Answer.objects.create(
+                choice = request.POST.get("item{}".format(i)),
+                question = Question.objects.get(id=i),
+                user = user
+                )
+
         request.session['type'] = result_type
         return redirect("result")
 
@@ -59,16 +73,17 @@ class ProcessView(View):
         -1つが最も高いとき : そのタイプを返す
         -数値が同一のとき  : 強いタイプを優先して返す"""
         personality_type = ""
-        if total >= total2 and total3:
+        if total >= total2 and total >= total3:
             personality_type = "a"
-        elif total2 > total and total3:
+        elif total2 > total and total2 > total3:
             personality_type = "b"
-        elif total3 > total and total2:
+        elif total3 > total and total3 > total2:
             personality_type = "c"
         elif total == total2 > total3 or total == total3 > total2:
             personality_type = "a"
         elif total2 == total3 > total:
             personality_type = "c"
+        print(personality_type)
         return personality_type
 
 
