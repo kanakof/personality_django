@@ -16,10 +16,18 @@ class ProcessView(View):
         print("post request is received")
         result_type = self.get_personality_type(request)
 
+        name = request.POST.get("nickname"), 
+        g_choice = request.POST.get("gender"),
+        b_choice = request.POST.get("blood")
+
+        """入力されていない場合、エラーを返す"""
+        if not name or not g_choice or not b_choice:
+            return redirect("questions")
+        
         user = User.objects.create(
             name = request.POST.get("nickname"), 
             g_choice = request.POST.get("gender"),
-            b_choice = request.POST.get("blood"), )
+            b_choice = request.POST.get("blood"),)
         
         count = Question.objects.count()
         for i in range(1,count + 1): # indexは1からとする
@@ -28,7 +36,7 @@ class ProcessView(View):
                 question = Question.objects.get(id=i),
                 user = user
                 )
-
+            
         request.session['type'] = result_type
         return redirect("result")
 
@@ -85,7 +93,6 @@ class ProcessView(View):
             personality_type = "c"
         print(personality_type)
         return personality_type
-
 
 class ResultView(View):
     def get(self, request):
