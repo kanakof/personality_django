@@ -128,7 +128,7 @@ p {
 }
 
 .content h2{
-  margin: 5px;
+  margin: 20px 5px 30px 5px;
 }
 
 .question_content,.question_other{
@@ -196,9 +196,8 @@ h2 {
 }
 
 p {
-  font-size:15px;
+  font-size:13px;
   font-weight:bold
 }
-
 
 }
