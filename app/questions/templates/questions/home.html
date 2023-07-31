@@ -7,6 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
     <link rel="stylesheet" href='{% static "index.css" %}' />
 
@@ -35,6 +36,10 @@
     </div>
 
     <button type="button"><a href="{% url 'questions' %}">診断をはじめる</a></button>
+    <div class="footer">
+        <div class="footer-logo"></div>
+        <div class="footer-list"></div>
+    </div>
 </body>
 
 </html>
