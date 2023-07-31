@@ -38,11 +38,11 @@
               {{question.body}}
             </div>  
             <div class="answer">
-              <label><input type="radio" name="item{{forloop.counter}}"  value="5" />とても同意する</label>
-              <label><input type="radio" name="item{{forloop.counter}}"  value="4" />まあ同意する</label>
-              <label><input type="radio" name="item{{forloop.counter}}"  value="3" />どちらでもない</label>
+              <label><input type="radio" name="item{{forloop.counter}}" value="5" required/>とても同意する</label>
+              <label><input type="radio" name="item{{forloop.counter}}" value="4" />まあ同意する</label>
+              <label><input type="radio" name="item{{forloop.counter}}" value="3" />どちらでもない</label>
               <label><input type="radio" name="item{{forloop.counter}}" value="2" />あまり同意しない</label>
-              <label><input type="radio" name="item{{forloop.counter}}"  value="1" />全く同意しない</label>
+              <label><input type="radio" name="item{{forloop.counter}}" value="1" />全く同意しない</label>
             </div> 
           </div>       
         {% endfor %}
@@ -50,14 +50,14 @@
         <div class="question_other">
           あなたのニックネームは？
           <div class="group1_area">
-            <label><input type="text" name="nickname"></label>
+            <label><input type="text" name="nickname" required></label>
           </div>
         </div>
 
         <div class="question_other">
           あなたの性別は？
           <div class="group1_area">
-            <label><input type="radio" name="gender" value="1" id="gender_female">女性</label>
+            <label><input type="radio" name="gender" value="1" id="gender_female" required>女性</label>
             <label><input type="radio" name="gender" value="2" id="gender_male">男性</label>
             <label><input type="radio" name="gender" value="3" id="gender_none">無回答</label>
           </div>
@@ -66,7 +66,7 @@
         <div class="question_other">
           あなたの血液型は？
           <div class="group1_area">
-            <label><input type="radio" name="blood" value="1" id="blood_a">A型</label>
+            <label><input type="radio" name="blood" value="1" id="blood_a" required>A型</label>
             <label><input type="radio" name="blood" value="2" id="blood_b">B型</label>
             <label><input type="radio" name="blood" value="3" id="blood_o">O型</label>
             <label><input type="radio" name="blood" value="4" id="blood_ab">AB型</label>
